@@ -1,3 +1,11 @@
+/**
+Filename:   question3.c
+Date:       13/08/2015
+Author:     Daniel C. Busan
+
+Description:
+**/
+
 #include <stdio.h>
 
 int factorial (int);
@@ -10,7 +18,7 @@ int main(void)
     scanf("%d", &n);
     if (n < 0)
     {
-      printf("Number is negative. Please try again\n", );
+      printf("Number is negative. Please try again\n" );
     }
   } while (n<1);
   printf("\n%d! = %d\n", n, factorial(n));
