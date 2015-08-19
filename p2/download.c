@@ -1,13 +1,11 @@
 /* This code is part of Worksheet 2 (for UCP 120). */
-// Needs to be compiled and run in a linux-based system, because of unistd.h
-
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>  /* <-- Actually part of UNIX rather than C; needed for the sleep() function. */
 
-#include "download.h"
+#include "download_stats.h"
 
 #define MIN_DOWNLOAD_SIZE 0
 #define MAX_DOWNLOAD_SIZE 1000000
@@ -36,13 +34,15 @@ int main(void)
         }
         currentTime++;
 
+	#ifdef ALL_STATS
         printf("\ntime == %d, bytes == %d\n-------------------\n", currentTime, bytes);
 
-        printf("ELAPSED_TIME: %d seconds\n", ELAPSED_TIME(currentTime, startTime));
-        printf("PERCENT_COMPLETE: %.2f%%\n", PERCENT_COMPLETE((double)bytes, (double)totalBytes));
-        printf("DOWNLOAD_SPEED: %.2f bytes/second\n", DOWNLOAD_SPEED(currentTime, startTime, (double)bytes));
-        printf("TOTAL_TIME: %.2f seconds\n", TOTAL_TIME(currentTime, startTime, (double)bytes, (double)totalBytes));
-        printf("REMAINING_TIME: %.2f seconds\n", REMAINING_TIME(currentTime, startTime, (double)bytes, (double)totalBytes));
+        printf("elapsedTime: %d seconds\n", elapsedTime(currentTime, startTime));
+        printf("percentComplete: %.2f%%\n", percentComplete((double)bytes, (double)totalBytes));
+        printf("downloadSpeed: %.2f bytes/second\n", downloadSpeed(currentTime, startTime, (double)bytes));
+        printf("totalTime: %.2f seconds\n", totalTime(currentTime, startTime, (double)bytes, (double)totalBytes));
+	#endif
+	printf("remainingTime: %.2f seconds\n", remainingTime(currentTime, startTime, (double)bytes, (double)totalBytes));
     }
     while(bytes < totalBytes);
 

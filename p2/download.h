@@ -6,4 +6,3 @@
 #define TOTAL_TIME(time, startTime, bytes, totalBytes) ((totalBytes)/(DOWNLOAD_SPEED(time, startTime, bytes)))
 #define REMAINING_TIME(time, startTime, bytes, totalBytes) ( (TOTAL_TIME(time, startTime, bytes, totalBytes)) - (ELAPSED_TIME(time, startTime)))
 
-
