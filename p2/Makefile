@@ -4,7 +4,7 @@ OBJ = download.o download_stats.o
 EXEC = download
 
 $(EXEC) : $(OBJ)
-	$(CC) $(OBJ) -o $(EXEC)
+	$(CC) $(OBJ) -o bin/$(EXEC)
 
 download.o : download.c download_stats.h
 	$(CC) -c download.c download_stats.c $(CFLAGS)
