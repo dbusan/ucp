@@ -15,25 +15,28 @@ void countMatches(int nPeople, int nPrints, int* nPossible, int* nDefinite, int 
 {
 	/** Variables to hold the values returned by getTemplates **/
 
-	int mPerson; 
+//	int mPerson; 
 	double mLeft, mRight;
-
+	
 
 	int i;
 	for (i = 0 ; i < nPeople; i++)
 	{
 	/** Returns -1 in mLeft and mRight if no template fingerprints exist for that person **/
-		getTemplates(mPerson, &mLeft, &mRight);
+		getTemplates(i, &mLeft, &mRight);
 	/** Skips this entire block if left and right fingerprint templates are -1 **/
 		if (!(mLeft == -1 && mRight == -1))
-		{
-
+		{		
+			int j;
+			for (j = 0 ; j < nPrints ; j++)
+			{		
+				int checkResult = *check(i, mLeft, mRight);
+				if (checkResult == 1)
+					*nPossible++;
+				else if (checkResult == 2)
+					*nDefinite++;
+			}
 		}
-
-
-
 	}
-
-
 }
 
