@@ -1,7 +1,7 @@
 #ifndef ORDER_H
 #define ORDER_H
 
-typedef void (*t_ordering)(char);
+typedef void (*t_ordering)(int*, int*, int*);
 
 void ascending3(int*, int*, int*);
 
