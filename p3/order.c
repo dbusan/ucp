@@ -1,5 +1,6 @@
 #include "order.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static void ascending2(int *a, int *b)
 {
@@ -44,7 +45,7 @@ t_ordering order(char order_type)
 
 void ascending3(int *a, int *b, int *c)
 {
-	
+	printf("\nAscending called\n");
 	ascending2(a, b);
 	ascending2(a, c);
 	ascending2(b, c);
