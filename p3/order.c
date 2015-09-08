@@ -1,4 +1,5 @@
 #include "order.h"
+#include <sdtlib.h>
 
 static void ascending2(int *a, int *b)
 {
@@ -20,6 +21,25 @@ static void descending2(int *a, int *b)
 	}
 }
 
+/** order() function
+	Takes single char as parameter, returns function pointer;
+	A is passed -> pointer to ascending3(), D is passed, returned descending3();
+	Else NULL;
+	t_ordering	
+**/
+
+t_ordering order(char order_type)
+{
+	if (order_type == 'A' || order_type == 'a')
+	{
+		return &ascending3;
+	}
+	else if (order_type == 'D' || order_type == 'd')
+		return &descending3;
+	else
+		return null;
+
+}
 
 
 void ascending3(int *a, int *b, int *c)
