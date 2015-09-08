@@ -37,7 +37,7 @@ t_ordering order(char order_type)
 	else if (order_type == 'D' || order_type == 'd')
 		return &descending3;
 	else
-		return null;
+		return NULL;
 
 }
 
