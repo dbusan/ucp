@@ -1,63 +1,37 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "array_op.h"
 
-int sum(int array[], int length)
-{
-	int i;
-	int result=0;
-	for(i=0;i<length;i++)
-	{
-		result += array[i];
-	}
-
-	return result;
-}
-
-int max(int array[], int length)
-{
-	int max_no = array[0];
-
-	for (i=1;i<length;i++)
-	{
-		if (max_no < array[i])
-			max_no = array[i];
-	}
-
-	return max_no;
-}
-
-void reverse(int array[], int length)
-{	
-	int i;
-	int *temp_array = malloc(length*sizeof(int));
-
-	for (i = 0; i < length ; i++)
-	{
-		temp_array[i] = array[i];
-	}
-
-	for (i = 0 ; i < length ; i++)
-	{
-		array[i] = temp_array[length-i];
-	}	
-}
-
-
+#define LENGTH 5
 
 int main(void)
 {
 	int sum_result; int nMax;
-	int length = 5;
-	int my_array[length] = {0, 5, 2, 3, 10}
+	int my_array[LENGTH] = {0, 5, 2, 3, 10};
 
-	sum_result = sum(my_array, length);
-	nMax = max(my_array, length);
+	int i;
 
-	for (i=0;i < length; i++)
+	sum_result = sum(my_array,LENGTH);
+	nMax = max(my_array, LENGTH);
+
+	printf("\nInitial array: ");
+	for (i=0;i < LENGTH; i++)
 	{
-		
+		printf("%d ",my_array[i]);
 	}
 	
-	
+	printf("\nSum: %d", sum_result);
+
+	printf("\nMax: %d", nMax);
+
+	reverse(my_array,LENGTH);
+	printf("\nReversed array: ");
+	for (i=0;i< LENGTH; i++)
+	{
+		printf("%d ",my_array[i]);
+	}
+
+	printf("\n");
 	
 	return 0;
 }
