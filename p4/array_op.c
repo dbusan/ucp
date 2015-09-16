@@ -17,13 +17,17 @@ int max(int array[], int length)
 {
 	int max_no = array[0];
 	int i;
+	int index = 0;
 	for (i=1;i<length;i++)
 	{
 		if (max_no < array[i])
+		{
 			max_no = array[i];
+			index = i;
+		}	
 	}
 
-	return max_no;
+	return index;
 }
 
 void reverse(int array[], int length)
