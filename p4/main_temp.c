@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "array_op.h"
+#include "str_conv.h"
+
 
 #define LENGTH 5
 
 int main(void)
 {
-	int sum_result; int nMax;
+/**	int sum_result; int nMax;
 	int my_array[LENGTH] = {0, 5, 2, 3, 10};
 
 	int i;
@@ -31,6 +33,22 @@ int main(void)
 		printf("%d ",my_array[i]);
 	}
 
+	printf("\n"); **/
+
+	/** Question 2
+	*/
+	
+	int my_array[LENGTH];
+
+	char* array[5] = { "15", "10", "12", "2", "1" };
+
+	convert(array, my_array, LENGTH);
+
+	int i;
+	for (i = 0; i < LENGTH; i++)
+	{
+		printf("%d ", my_array[i]);
+	}
 	printf("\n");
 	
 	return 0;
