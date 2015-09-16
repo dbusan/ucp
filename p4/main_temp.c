@@ -44,11 +44,15 @@ int main(void)
 
 	convert(array, my_array, LENGTH);
 
-	int i;
+/**	int i;
 	for (i = 0; i < LENGTH; i++)
 	{
 		printf("%d ", my_array[i]);
-	}
+	} **/
+
+	/** edited for question 3**/
+	print_array(my_array,LENGTH);
+
 	printf("\n");
 	
 	return 0;
