@@ -19,7 +19,10 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		readlog(argv[1]);
+		if (readlog(argv[1]) == 1)
+			printf("\nSuccessful\n");
+		else
+			printf("\Could not open logfile\n");
 	}
 	return 0;
 }
