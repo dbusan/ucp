@@ -8,21 +8,19 @@
 
 #include <stdio.h>
 #include "logreader.h"
-
+#include "logtest.h"
 
 int main(int argc, char* argv[])
 {
-
-	// open file
-
-	// read file line-by-line
-
-	// determine if message contains "fail"
-
-
-	// convert time to seconds since midnight and print out
-
-
+	
+	if (argc < 2)
+	{
+		printf("\nNo logfile name specified\n");
+	}
+	else
+	{
+		readlog(argv[1]);
+	}
 	return 0;
 }
 
