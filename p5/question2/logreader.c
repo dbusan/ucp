@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	
 	if (argc < 2)
 	{
-		printf("\nNo logfile name specified\n");
+		printf("No logfile name specified\n");
 	}
 	else
 	{
