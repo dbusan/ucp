@@ -6,14 +6,15 @@ int readlog( char[] logname )
 {
 	*FILE log;
 	
-	/** If file can't be opened, spit out an error **/
+	/** If file can't be opened, print an error and exit the function **/
 	if ( log = fopen( logname, "r" ) == NULL )
 	{
 		printf("\nError when opening logfile\n");
 		return 0;
 	}
-	else
+	else /** logfile was succesfully opened **/
 	{
+
 
 
 		return 1;
