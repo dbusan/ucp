@@ -21,19 +21,19 @@ int main(int argc, char* argv[])
 		FILE* out;
 		double** data;
 
-		const int rows = argv[2]; 
-		const int columns = argv[3];
+		const int rows = atoi(argv[2]); 
+		const int columns = atoi(argv[3]);
+		const char* filename = argv[1];
 
 		int i;
 		int j;
 
-		if ( (out = fopen(argv[1], "w") == NULL))
+		if ( (out = fopen(filename, "w")) == NULL)
 		{
 			printf("\nCould not open output file. Check privileges\n");
 		}
 		else
 		{
-
 			/* Allocate memory for the arrays */
 			data = (*double)malloc( rows*sizeof(*double));
 			if (data == NULL)
@@ -56,9 +56,9 @@ int main(int argc, char* argv[])
 						/* Checks if it's the last element in the row. If so, adds the newline character in the file 
 						 Could also be done after the loop ends, but then I'd have to handle the spacing differently */
 						if (j == columns-1)
-							fprintf( out, "%d\n", data[i][j]);
-						else
-							fprintf( out, "%d ", data[i][j]);
+							fprintf( out, "%lf\n", data[i][j]);
+						els
+							fprintf( out, "%lf ", data[i][j]);
 					}
 				}
 
