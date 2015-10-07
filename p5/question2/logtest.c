@@ -84,13 +84,12 @@ int readlog( char logname[] )
 			if ( (temp=strstr( message, "fail" )) != NULL)
 			{
 				int seconds = time[2] + time[1]*60 + time[0] * 60*60;
-				int j = 0;
 
 				message[i] = '\0'; /** add null terminator to string **/
 
 
 
-				printf("%s; %d seconds from midnight %d %s \n", message, seconds, day, month );
+				printf("%d %s: %s %s; %d seconds from midnight \n", day, month, process_name, message, seconds);
 
 			}
 		} while ( !done );
