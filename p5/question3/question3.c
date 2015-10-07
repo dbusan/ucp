@@ -74,6 +74,12 @@ int main(int argc, char* argv[])
 				}
 			}
 
+			if (ferror(in))
+			{
+				printf("\nAn error occurred while file was read\n");
+
+			}
+
 			plot(data, rows, columns);
 
 
