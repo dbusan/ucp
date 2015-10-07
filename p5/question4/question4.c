@@ -12,7 +12,7 @@
 int main(int argc, char* argv[])
 {
 
-	if (argc < 2)
+	if (argc < 3)
 	{
 		printf("Usage: generate [filename] [rows] [columns]\n");
 	}
@@ -21,8 +21,9 @@ int main(int argc, char* argv[])
 		FILE* out;
 		double **data;
 
-		const int rows = atoi(argv[2]); 
-		const int columns = atoi(argv[3]);
+		int rows = atoi(argv[2]); 
+		int columns = atoi(argv[3]);
+
 		const char* filename = argv[1];
 
 		int i;
@@ -68,11 +69,12 @@ int main(int argc, char* argv[])
 				
 
 				/* Deallocate memory */
-				free(data);
 				for ( i = 0; i < rows; i++)
 				{
 					free(data[i]);
 				}
+
+				free(data);
 			}
 			fclose(out);
 		}
