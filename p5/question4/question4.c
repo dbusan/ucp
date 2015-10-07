@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 	else
 	{
 		FILE* out;
-		double** data;
+		double **data;
 
 		const int rows = atoi(argv[2]); 
 		const int columns = atoi(argv[3]);
@@ -35,14 +35,14 @@ int main(int argc, char* argv[])
 		else
 		{
 			/* Allocate memory for the arrays */
-			data = (*double)malloc( rows*sizeof(*double));
+			data = (double**)malloc( rows*sizeof(double*));
 			if (data == NULL)
 				printf("Memory allocation failed\n");
 			else
 			{
 				for ( i = 0; i < rows; i++)
 				{
-					data[i] = (double)malloc(columns*sizeof(double));
+					data[i] = (double*)malloc(columns*sizeof(double));
 				}
 
 				randomArray(data, rows, columns, 5);
@@ -56,9 +56,9 @@ int main(int argc, char* argv[])
 						/* Checks if it's the last element in the row. If so, adds the newline character in the file 
 						 Could also be done after the loop ends, but then I'd have to handle the spacing differently */
 						if (j == columns-1)
-							fprintf( out, "%lf\n", data[i][j]);
-						els
-							fprintf( out, "%lf ", data[i][j]);
+							fprintf( out, "%f\n", data[i][j]);
+						else
+							fprintf( out, "%f ", data[i][j]);
 					}
 				}
 
