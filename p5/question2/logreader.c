@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 		if (readlog(argv[1]) == 1)
 			printf("\nSuccessful\n");
 		else
-			printf("\Could not open logfile\n");
+			printf("\nCould not open logfile\n");
 	}
 	return 0;
 }
