@@ -7,7 +7,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "randomarray.h"
+
+
 
 int main(int argc, char* argv[])
 {
@@ -24,11 +28,19 @@ int main(int argc, char* argv[])
 		int rows = atoi(argv[2]); 
 		int columns = atoi(argv[3]);
 
-		const char* filename = argv[1];
+		char filename[50];
 
-		int i;
-		int j;
+		int i,j;
 
+		if ( strcmp(argv[1],"-") == 0) /* if the first passed argument is -, take user input */
+		{
+			fscanf(stdin,"%49s",filename);
+			fprintf(stdout, "%s",filename);
+		}
+		else
+		{
+			strncpy( filename, argv[1], 50);
+		}
 		if ( (out = fopen(filename, "w")) == NULL)
 		{
 			printf("\nCould not open output file. Check privileges\n");

@@ -18,6 +18,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "plot.h"
 
@@ -37,8 +38,21 @@ int main(int argc, char* argv[])
 		double **data;
 		int rows, columns;
 		int i,j;
+		
 
-		if ( (in = fopen(argv[1],"r")) == NULL)
+		char filename[50];
+
+
+		if (strcmp(argv[1],"-") == 0)
+		{
+			fscanf(stdin,"%49s",filename);
+		}
+		else
+		{
+			strncpy( filename, argv[1], 50);
+		}
+
+		if ( (in = fopen(filename,"r")) == NULL)
 		{
 			printf("Could not open file.\n");
 		}

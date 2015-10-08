@@ -1,6 +1,6 @@
 CC = gcc
 CFlAGS = -Wall -ansi -pedantic
-OBJ1 =  question3.o plot.o randomarray.o
+OBJ1 =  question3.o plot.o
 OBJ2 = question4.o plot.o randomarray.o
 EXEC1 = display
 EXEC2 = generate
@@ -15,7 +15,7 @@ $(EXEC1): $(OBJ1)
 $(EXEC2): $(OBJ2)
 	mkdir -p bin; $(CC) $(OBJ2) -o bin/$(EXEC2)
 
-question3.o: question3.c plot.h
+question3.o: question3.c plot.h 
 	$(CC) -c question3.c $(CFLAGS)
 
 question4.o: question4.c randomarray.h plot.h
