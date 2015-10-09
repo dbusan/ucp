@@ -70,13 +70,8 @@ void freeJournal(Journal* mJournal)
 }
 
 /**
- * 
- * 
- * @param
- * @param
- * @param
+ *  
  *
- * memory for mJournal->entry is allocated here
  */
 Journal readEntries(FILE *infile)
 {
@@ -106,6 +101,11 @@ Journal readEntries(FILE *infile)
 			fscanf(infile, "%d/%d/%d\n",&day, &month, &year);
 
 			fgets(message, sizeof(message), infile);
+
+			if (message[strlen(message)-1] == '\n')
+			{
+				message[strlen(message)-1] = '\0';
+			}
 			
 			mJournal.entry[i].day = day;
 			mJournal.entry[i].month = month;

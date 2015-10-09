@@ -30,7 +30,7 @@ int getJournalEntry(int index,
 Journal readJournal(char* filename);
 
 void freeJournal(Journal* mJournal);
-
+ 
 Journal readEntries(FILE *journal);
 
 #endif
