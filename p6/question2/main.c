@@ -8,15 +8,13 @@
 
 int main(int argc, char* argv[])
 {
-	int date[3];
-
-	int i;
-
-	char message[100];
 
 	char* filename = {"testjournal"};
-	LinkedList* myList;
-	Journal elJournal;
+	int size;
+
+	JournalEntry *journal;
+
+	int j = atoi(argv[1]);
 
 	if (argc < 2)
 	{
@@ -24,14 +22,18 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-
-		elJournal = readJournal(filename);
-		myList = createList();
+		size = readEntries(filename, &journal);
 		
+		if (j < size)
+			printf("%2d-%02d-%02d: %s\n",journal[j].year, journal[j].month, journal[j].day, journal[j].message);
+		else
+		{
+			printf("Error - Entry specified does not exist\n");
+		}
 
-		
-		freeJournal(&elJournal);
-		free(myList);
+		freeJournal(&journal,size);
+
+		free(journal);
 	}
 	
 	
